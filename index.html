@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Title</title>
+	</head>
+	<body id="body" class="p-0" style="background-color: #151515">
+		<h1 id="titre" class="text-center mt-5">TikTakTwo</h1>
+
+		<span class="text-center mx-auto d-block my-2 h2" id="joueur"></span>
+		<div class="container fluid position-relative">
+			<canvas class="mx-auto d-block my-2" style="background-color: #363636;" width="900" height="900" id="canvas">
+				Désolé, votre navigateur ne prend pas en charge canvas.
+			</canvas>
+			
+		</div>
+		<div class="d-flex justify-content-between mx-auto" id="scoreContainer">
+			<span class="text-left m-2 h2" id="score1"></span>
+			<button onclick="resetGame()" class="btn btn-lg btn-warning d-block mx-auto mb-5 font-weight-bolder">
+				Reset !
+			</button>
+			<span class="text-right m-2 h2" id="score2"></span>
+		</div>
+		<div class="menu setting">
+			<div class="container ml-0">
+				<div class="row">
+					<label class="col-8 mr-0 text-left">Force Square :</label>
+					<span class="col-2 text-left ml-0 pl-0 switch">
+						<input onclick="updateSquare()" type="checkbox" class="switch" id="square" />
+						<label for="square"></label>
+					</span>
+				</div>
+				<div class="row">
+					<label class="col-6 text-left" for="col">Column :</label>
+					<input class="form-control col-5" value="3" id="col" type="number" />
+				</div>
+				<div class="row min-row-height">
+					<label class="col-6 text-left" for="row">Row :</label>
+					<input class="form-control col-5" value="3" id="row" type="number" />
+				</div>
+				<div class="row">
+					<label class="col-7 text-left" for="nbWin">Min to win :</label>
+					<input class="form-control col-4" value="3" id="nbWin" type="number" />
+				</div>
+				<div class="row">
+					<label class="mx-auto">Game type</label>
+				</div>
+				<div class="row">
+					<label class="col-5 mr-0 text-center">TikTak:</label>
+					<span class="col-2 text-left ml-0 pl-0 switch">
+						<input onclick="updateGameMode()" type="checkbox" class="switch" id="gameMode" />
+						<label for="gameMode"></label>
+					</span>
+					<label class="col-5 mr-0 text-center">Puis 4</label>
+				</div>
+				<button onclick="updateSettings()" class="btn btn-lg btn-warning d-block mx-auto font-weight-bolder">
+					Update
+				</button>
+			</div>
+			<button id="menu-btn" onclick="hideMenu()"><i class="fas fa-caret-left"></i></button>
+		</div>
+		<script src="logic.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</body>
+</html>
