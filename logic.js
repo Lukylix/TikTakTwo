@@ -1,15 +1,3 @@
-/*
-Ce code a besoin d'etre nettoyé:
-		- Use jQuerry or default Dom manipulation not both
-		- Done [remove Game object passing from functions]
-		- Check for unnecessary/redundant calculation (Could result in more ram usage but less cpu)
-To do list :
-		- Front canvas for the grid lines, so no need to refresh the grid every times
-		- Physic simulation for jetons dropping
-		- Better check win based on last input
-		- Turn it into a GameOfLife
-*/
-
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
