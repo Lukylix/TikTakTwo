@@ -117,7 +117,7 @@ function drawGridNew() {
 }
 
 function drawClearColumn(idx, idy, spaceAvailable) {
-  game.ctx.fillStyle = document.getElementById("canvas").style.backgroundColor;
+  game.ctx.fillStyle = $("#canvas").css("background-color");
   game.ctx.fillRect(
     idx * game.cube.width + game.spacing / 2,
     idy * game.cube.height + game.spacing / 2,
@@ -176,11 +176,11 @@ function fontSelect(style, color, resize = 100, bypassSize) {
   }px "Font Awesome 5 Free"`;
 }
 function updatePlayerText(elementID) {
-  document.getElementById(elementID).innerHTML =
-    game.playerTurn == true ? "Joueur 1" : "Joueur 2";
-  document.getElementById(elementID).style.color = game.playerTurn
-    ? game.color.player[0]
-    : game.color.player[1];
+  $("#" + elementID).text(game.playerTurn == true ? "Joueur 1" : "Joueur 2");
+  $("#" + elementID).css(
+    "color",
+    game.playerTurn ? game.color.player[0] : game.color.player[1]
+  );
 }
 function drawMessageCenter(message, color, size) {
   game.ctx.fillStyle = game.color.line;
@@ -338,7 +338,6 @@ function checkWinFromInput(idx, idy, nbForWin) {
       z <= (direction == 0 ? endX : endY);
       z++
     ) {
-      console.log("inside for !");
       if (
         game.states[direction == 0 ? idy : z][direction == 0 ? z : idx] ==
         game.playerTurn
@@ -535,12 +534,8 @@ game.canvas.addEventListener("mousedown", async function(event) {
       if (checkWinFromInput(click[0], click[1], game.nbForWin)) {
         game.ended = true;
         game.playerTurn ? game.score[0]++ : game.score[1]++;
-        document.getElementById(
-          "score1"
-        ).innerHTML = `Joueur 1 : ${game.score[0]}`;
-        document.getElementById(
-          "score2"
-        ).innerHTML = `Joueur 2 : ${game.score[1]}`;
+				$("#score1").text(`Joueur 1 : ${game.score[0]}`)
+        $("#score2").text(`Joueur 2 : ${game.score[1]}`);
         drawMessageCenter(
           `Joueur ${game.playerTurn ? "1" : "2"} a gagné !`,
           game.playerTurn ? game.color.player[0] : game.color.player[1],

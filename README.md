@@ -9,9 +9,9 @@ Mousaab can't copy it without authorization.
 - Dynamic setting refresh on edits 
 - Physic simulation for jetons dropping
 - Allow next player to play before the end of annimation
-- Better checkWin() based on last input
+- ~~Better checkWin() based on last input~~
 - Turn it into a GameOfLife  
 - Code cleaning
-  - Use jQuerry or default Dom manipulation not both
+  - ~~Use jQuerry or default Dom manipulation not both~~ (Almost done)
   - ~~Remove Game object passing from functions~~
   - Check for unnecessary/redundant calculation
