@@ -161,6 +161,7 @@ async function drawDropingJeton(idx, idy, playerTurn) {
   game.ctx.fillText("\uf111", posX, posEnd);
   drawGridNew();
   game.dropingRuning = false;
+  return [idx, idy + spaceAvailable];
 }
 
 function fontSelect(style, color, resize = 100, bypassSize) {
@@ -292,9 +293,9 @@ function checkWinFromInput(idx, idy, nbForWin) {
   let startY = idy - (nbForWin - 1) > 0 ? idy - (nbForWin - 1) : 0;
   let endY =
     idy + (nbForWin - 1) < game.row ? idy + (nbForWin - 1) : game.row - 1;
-  let alignedCount = 0;
   //Check diag
   for (diag = 0; diag < 2; diag++) {
+    let alignedCount = 0;
     let currentY =
       (diag == 0 ? startY : endY) +
       ((diag == 0 ? idy - startY : endY - idy) > idx - startX
@@ -529,7 +530,7 @@ game.canvas.addEventListener("mousedown", async function(event) {
           game.ctx.fillText("\uf00d", pos[0], pos[1]);
         }
       } else {
-        await drawDropingJeton(click[0], click[1], game.playerTurn);
+        click = await drawDropingJeton(click[0], click[1], game.playerTurn);
       }
       if (checkWinFromInput(click[0], click[1], game.nbForWin)) {
         game.ended = true;
