@@ -534,7 +534,7 @@ game.canvas.addEventListener("mousedown", async function(event) {
       if (checkWinFromInput(click[0], click[1], game.nbForWin)) {
         game.ended = true;
         game.playerTurn ? game.score[0]++ : game.score[1]++;
-				$("#score1").text(`Joueur 1 : ${game.score[0]}`)
+        $("#score1").text(`Joueur 1 : ${game.score[0]}`);
         $("#score2").text(`Joueur 2 : ${game.score[1]}`);
         drawMessageCenter(
           `Joueur ${game.playerTurn ? "1" : "2"} a gagné !`,

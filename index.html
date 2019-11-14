@@ -13,7 +13,7 @@
 		<h1 id="titre" class="text-center mt-5">TikTakTwo</h1>
 
 		<span class="text-center mx-auto d-block my-2 h2" id="joueur"></span>
-		<div class="container fluid position-relative">
+		<div class="container-fluid position-relative">
 			<canvas class="mx-auto d-block my-2" style="background-color: #363636;" width="900" height="900" id="canvas">
 				Désolé, votre navigateur ne prend pas en charge canvas.
 			</canvas>
@@ -37,15 +37,15 @@
 				</div>
 				<div class="row">
 					<label class="col-6 text-left" for="col">Column :</label>
-					<input class="form-control col-5" value="3" id="col" type="number" />
+					<input onchange="updateSettings()" class="form-control col-5" value="3" id="col" type="number" />
 				</div>
 				<div class="row min-row-height">
 					<label class="col-6 text-left" for="row">Row :</label>
-					<input class="form-control col-5" value="3" id="row" type="number" />
+					<input onchange="updateSettings()" class="form-control col-5" value="3" id="row" type="number" />
 				</div>
 				<div class="row">
 					<label class="col-7 text-left" for="nbWin">Min to win :</label>
-					<input class="form-control col-4" value="3" id="nbWin" type="number" />
+					<input onchange="updateSettings()" class="form-control col-4" value="3" id="nbWin" type="number" />
 				</div>
 				<div class="row">
 					<label class="mx-auto">Game type</label>
